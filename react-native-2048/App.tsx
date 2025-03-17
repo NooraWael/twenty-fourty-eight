@@ -8,6 +8,7 @@ import useGameBoard from './hooks/board';
 
 // Import utility functions
 import { getBestScore, saveBestScore } from './utils/storage';
+import Layout from './_layout';
 
 export default function App() {
   // State to track if we're still loading saved data
@@ -28,9 +29,7 @@ export default function App() {
   useEffect(() => {
     const loadSavedData = async () => {
       try {
-        // Load best score from AsyncStorage
-        const savedBestScore = await getBestScore();
-        // TODO RETRIEVE CURRENT GAME DATA 
+        // TODO RETRIEVE CURRENT GAME DATA - Later for fun 
         
         setIsLoading(false);
       } catch (error) {
@@ -65,6 +64,7 @@ export default function App() {
 
   // Main app UI
   return (
+    <Layout>
     <SafeAreaView style={styles.container}>
       <StatusBar barStyle="dark-content" backgroundColor="#faf8ef" />
       
@@ -106,12 +106,13 @@ export default function App() {
           {/* Footer with credit or tips */}
           <View style={styles.footer}>
             <Text style={styles.footerText}>
-              Swipe in any direction to start playing!
+              Noora Qasim - 2025 - Reboot Bahrain
             </Text>
           </View>
         </View>
       </LinearGradient>
     </SafeAreaView>
+    </Layout>
   );
 }
 
